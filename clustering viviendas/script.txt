@@ -1,0 +1,10 @@
+cont = 0
+for enti,muni in zip(df_general.CVE_ENT,df_general.CVE_MUN): # df_general: es el dataframe que pasó jacobo 
+    cont2 = 0
+    for est,mun in zip(clus.cve_est,clus.cve_mun): # clus: es mi dataframe de vivienda
+        if enti == est and muni == mun:
+            df_general.VIVIENDA_ENDUTIH[cont] = clus.Cluster[cont2] #la columna VIVIENDA_ENDUTIH es la que se agregó
+        cont2 = cont2+1 
+    cont = cont+1
+    if cont%1000 == 0: #imprime cada que recorre 1000 veces
+        print(cont)
